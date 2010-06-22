@@ -240,3 +240,4 @@
 ##Keith Gaddis##
 ###keith@collectiveidea.com / @karmajunkie###
 ###Collective Idea###
+###http://github.com/karmajunkie/railsconf_recap###
