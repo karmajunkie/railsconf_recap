@@ -1,0 +1,137 @@
+Presentation
+RailsConf 2010
+
+
+Themes:
+    * We're AWESOME
+    * Rails 3 is AWESOME
+    * NoSQL is AWESOME
+    * Most people don't know this, but JRuby is AWESOME
+	* Everybody likes us because WE'RE AWESOME
+
+Keynotes
+    Tues: DHH, Michael Feathers (ObjectMentor), Katz (evening)
+    Wed:  Neal Ford (Thoughtworks), Evan Phoenix (Engineyard), Derik Sivers (evening)
+    Thus: Bob Martin, Gary V
+Keynotes in detail
+    * DHH - Basically covered the things he's excited about in R3
+        * Bundler
+        * AREL
+        * routing refactor
+        * ActionMailer 
+        * Takeaway: we're solving harder problems with simpler api's
+    * Feathers
+        * working with legacy code in Ruby
+        * Do you write good code? (Probably not)
+        * Big Ball of Mud Paper
+        * Can we fight entropy?
+        * Tests matter most in the parts of the code that change with high frequency
+        * Use repos to figure out what those areas are
+    * Katz
+        * Talk about the Ruby community
+        * Downright inspirational
+        * ANYBODY can be AWESOME
+        * Getting involved can seem hard thanks to the "in-crowd" notion
+        * the in-crowd is an artificial distinction
+        * your first effort doesn't have to be outstanding or do anything super magnificent
+            * rubinius string functions are mostly Katz's (crappy) implementation
+        * Be inclusive: RTFM doesn't do the noob any good
+        * Takeaway: You don't have to go to MIT or Stanford or Carnegie-Mellon to do great things in the Rails community
+        * What you really need is to work REALLY HARD
+    * Gary Vaynerchuk
+        * "Welcome to the Give a F*ck Economy"
+        * Companies that are going to be successful moving forward are those that connect on a visceral level with their customers
+
+Sessions I liked
+	Don't Repeat Yourself, Repeat Others - John Nunemaker, OrderedList
+		John writes a lot of well-known libraries in the community, including HTTParty, MongoMapper
+		Reinventing the wheel is a great way to learn
+		John will be the first to tell you he's not the smart--he just works really hard and writes a lot of code
+		Half the code in his libraries comes from people who are better at it than he is
+		Advice: 
+			Reinvent the Wheel, 
+			Eat your own Dogfood (API's), 
+			learn the design patterns in the community
+			Don't be afraid to steal code
+			Write about it
+	Rocket Fueled Cucumbers - Joseph Wilk, Songkick.com
+		Wilk is a great presenter
+		Executive Summary: cucumber doesn't have to be slow
+		Strategies for using cucumber quickly
+			in Development, run focused cukes, e.g. a feature directory
+			Spork to reduce loading overhead
+			Tagging
+				tag slow services like search
+				tag feature sets to slice cukes
+			cucover is like autotest for cucumber
+				analyzes which files exercise which cukes and runs the appropriate tests when you change lines 
+		Test builds
+			Testjour -distributed test suite
+				in the cloud, Songkick's build went from 4 hours to 11.6 mins
+				use slim-sumo to launch ec2 servers on demand to reduce cost
+			Hydra - another distributed test suite
+				supports rspec and test::unit as well as cucumber
+			Run tests that matter
+				Not all tests are equally likely to fail
+				run these in your CI build
+				Run full suite in a nightly build
+			Architectural solution: SOA
+				use a Service Oriented Architecture to divide functionalities and create smaller test suites
+			Pairwise generates pairings of factors that are likely to cause interaction problem
+		Javascript
+			Just don't do it :)
+			when you have to, use capybara, envjs, johnson, and spidermonkey to simulate a browser environment
+				this is NOT going to work for everyone
+				capybara-envjs project on github links capybara and env.js
+
+	12 hours to rate a Rails app - Elise Huard, Jabberwocky
+		How do we assess an unfamiliar codebase?
+		Team
+			Roles of team members
+			Vision
+			Methodology
+			bug tracking
+			version control
+		App
+			Try it out - Does it work?
+			Rails version
+			Plugins/gems
+			how does it manage updates (bundler, piston, submodules, etc?)
+			Licenses?
+			Tests (please say you have tests!)
+			Routing - Lots of named routes vs restful resources
+		Metrics
+			rake stats => LOC
+			flog - detects & rates code complexity: you want score < 50 (<20 is great)
+			flay - detects code similarities: lower score is better
+			saikuro - another complexity tool
+			roodi - Ruby Object Oriented Design Inferometer (looks for code smells and complexity)
+			reek - code smells
+			rails_best_practices - gives BP suggestions
+			churn - looks for code that changes a lot (use to focus tests?)
+			rcov
+			heckle - changes the data and functions your tests use.  Ideally they all break when heckle's through with them
+			metric_fu - wraps up a lot of these into a single gem
+			(None of these will detect outright bugs)
+		Database
+			schema.rb
+			seed data
+			migrations
+		View
+			indentation
+			div-itis
+		Deployment
+			should be completely automated
+
+	Agile the Pivotal Way - Ian McFarland, Pivotal Labs
+	Rails' Next Top Model: Using ActiveModel and ActiveRelation - Adam Keys, Gowalla
+	Present future of OAuth - Mike Bleigh, Intridea
+	Curing DIV-itis
+		Be semantic
+			Bad
+			Good
+		Generated markup is generally bad
+		Helpers should return data, not markup
+		ZenCoding: tool for TM to generate HTML based on a CSS selector you give it
+
+
